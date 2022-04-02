@@ -1,14 +1,37 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
-/.idea
-/.vscode
+backend/backend-code/node_modules
+backend/backend-code/public/hot
+backend/backend-code/public/storage
+backend/backend-code/storage/*.key
+backend/backend-code/vendor
+backend/backend-code/.env
+backend/backend-code/.env.backup
+backend/backend-code/.phpunit.result.cache
+backend/backend-code/Homestead.json
+backend/backend-code/Homestead.yaml
+backend/backend-code/npm-debug.log
+backend/backend-code/yarn-error.log
+backend/backend-code/.idea
+backend/backend-code/.vscode
+
+
+# dependencies
+frontend/node_modules
+frontend/.pnp
+.pnp.js
+
+# testing
+frontend/coverage
+
+# production
+frontend/build
+
+# misc
+forntend/.DS_Store
+forntend/.env.local
+forntend/.env.development.local
+forntend/.env.test.local
+forntend/.env.production.local
+
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
