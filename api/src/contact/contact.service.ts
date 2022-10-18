@@ -37,7 +37,7 @@ export class ContactService {
   }
 
   async findAll(): Promise<ContactDetails[] | null> {
-    return this.contactModel.find();
+    return await this.contactModel.find();
   }
 
   async update(

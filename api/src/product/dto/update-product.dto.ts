@@ -1,4 +1,16 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateProductDto } from './create-product.dto';
+import { IsDate, IsNumber, IsString } from 'class-validator';
+import Grade from '../enums/grade.enum';
 
-export class UpdateProductDto extends PartialType(CreateProductDto) {}
+export class UpdateProductDto {
+  @IsString()
+  name: string;
+
+  @IsString()
+  grade: Grade;
+
+  @IsString()
+  description: string;
+
+  @IsNumber()
+  price: number;
+}

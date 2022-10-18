@@ -16,9 +16,14 @@ import { ContactService } from './contact.service';
 import { ContactDetails } from './interfaces/contact-details.interface';
 import { UpdateContactDto } from './dto/update-contact.dto';
 
-@Controller('contact')
+@Controller('contacts')
 export class ContactController {
   constructor(private contactService: ContactService) {}
+
+  @Get()
+  async findAll() {
+    return this.contactService.findAll();
+  }
 
   @Post('create')
   async create(
@@ -51,7 +56,7 @@ export class ContactController {
     if (!editedContact) throw new NotFoundException('Contact not found');
 
     return res.status(HttpStatus.OK).json({
-      message: 'Contact updated successfully',
+      message: `Contact ${id} updated successfully`,
       contact: editedContact,
     });
   }
@@ -63,7 +68,7 @@ export class ContactController {
     if (!deletedContact) throw new NotFoundException('Contact not found');
 
     return res.status(HttpStatus.OK).json({
-      message: 'Contact deleted successfully',
+      message: `Contact ${id} deleted successfully`,
       contact: deletedContact,
     });
   }
