@@ -1,15 +1,16 @@
 import { IsNumber, IsString } from 'class-validator';
-import Grade from '../enums/grade.enum';
 
-export class UpdateProductDto {
+export class CreateExpenseDto {
+  _id: string;
+
   @IsString()
   name: string;
 
   @IsString()
-  grade: Grade;
-
-  @IsString()
   description: string;
+
+  @IsNumber()
+  quantity: number;
 
   @IsNumber()
   price: number;

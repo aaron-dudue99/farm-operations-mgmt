@@ -25,6 +25,11 @@ export class ContactController {
     return this.contactService.findAll();
   }
 
+  @Get(':id')
+  async findById(@Param('id') id: string): Promise<ContactDetails> {
+    return this.contactService.findById(id);
+  }
+
   @Post('create')
   async create(
     @Body(new ValidationPipe()) contact: CreateContactDto,
@@ -32,14 +37,9 @@ export class ContactController {
   ): Promise<ContactDetails | null> {
     const createdContact = await this.contactService.create(contact);
     return res.status(HttpStatus.OK).json({
-      message: 'Contact created successfully',
+      message: `Contact ${createdContact._id} created successfully`,
       contact: createdContact,
     });
-  }
-
-  @Get(':id')
-  async findById(@Param('id') id: string): Promise<ContactDetails> {
-    return this.contactService.findById(id);
   }
 
   @Put(':id')
